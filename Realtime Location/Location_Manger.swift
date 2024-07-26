@@ -1,12 +1,6 @@
-//
-//  Location_Manger.swift
-//  Realtime Location
-//
-//  Created by BS1098 on 24/7/24.
-//
-
 import CoreLocation
 import Combine
+import MapKit
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
@@ -14,6 +8,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var distance: Double = 0.0
     @Published var startingLocation: CLLocation?
     @Published var endingLocation: CLLocation?
+    @Published var path: [CLLocation] = []
     private var previousLocation: CLLocation?
     private var isTracking: Bool = false
 
@@ -30,6 +25,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         startingLocation = location
         endingLocation = nil
         previousLocation = location
+        path = [location].compactMap { $0 }
     }
 
     func stopTracking() {
@@ -43,6 +39,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         if isTracking, let previousLocation = previousLocation {
             let delta = newLocation.distance(from: previousLocation)
             distance += delta
+            path.append(newLocation)
         }
         self.previousLocation = newLocation
         self.location = newLocation
