@@ -130,7 +130,7 @@ struct DistanceView: View {
                             .font(.heading)
                             .foregroundColor(.secondary)
                     }
-
+                    
                     // Buttons
                     HStack {
                         Button(action: {
