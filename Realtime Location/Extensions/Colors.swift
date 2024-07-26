@@ -30,4 +30,5 @@ extension Color {
     static let marianBlue = Color(red: 0.12156862745098039, green: 0.25882352941176473, blue: 0.5294117647058824)
     static let turquoise = Color(red: 0.12941176470588237, green: 0.9019607843137255, blue: 0.7568627450980392)
     static let azure = Color(red: 0.8862745098039215, green: 0.9529411764705882, blue: 0.9607843137254902)
+    static let folly = Color(red: 0.9490196078431372, green: 0.20784313725490197, blue: 0.3411764705882353)
 }

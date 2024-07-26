@@ -18,4 +18,3 @@ struct ContentView: View {
         .accentColor(Color.turquoise)
     }
 }
-
