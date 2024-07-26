@@ -10,9 +10,11 @@
 		F96346AD2C50F54900842C63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96346AC2C50F54900842C63 /* ContentView.swift */; };
 		F96346AF2C50F55600842C63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F96346AE2C50F55600842C63 /* Assets.xcassets */; };
 		F96346B22C50F55600842C63 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F96346B12C50F55600842C63 /* Preview Assets.xcassets */; };
-		F96346B92C50FCF000842C63 /* Location_Manger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96346B82C50FCF000842C63 /* Location_Manger.swift */; };
-		F96346BD2C5236C800842C63 /* Distance_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96346BC2C5236C800842C63 /* Distance_App.swift */; };
+		F96346B92C50FCF000842C63 /* LocationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96346B82C50FCF000842C63 /* LocationManger.swift */; };
+		F96346BD2C5236C800842C63 /* RealtimeLocationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96346BC2C5236C800842C63 /* RealtimeLocationApp.swift */; };
 		F99D15462C526EB2000DCEE2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D15452C526EB2000DCEE2 /* MapView.swift */; };
+		F99D15492C5371E6000DCEE2 /* DistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D15482C5371E6000DCEE2 /* DistanceView.swift */; };
+		F99D154C2C5380C1000DCEE2 /* TestStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D154B2C5380C1000DCEE2 /* TestStyles.swift */; };
 		F9A267BB2C524EB5006CCAF1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A267BA2C524EB5006CCAF1 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,9 +23,11 @@
 		F96346AC2C50F54900842C63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F96346AE2C50F55600842C63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F96346B12C50F55600842C63 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F96346B82C50FCF000842C63 /* Location_Manger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location_Manger.swift; sourceTree = "<group>"; };
-		F96346BC2C5236C800842C63 /* Distance_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distance_App.swift; sourceTree = "<group>"; };
+		F96346B82C50FCF000842C63 /* LocationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManger.swift; sourceTree = "<group>"; };
+		F96346BC2C5236C800842C63 /* RealtimeLocationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeLocationApp.swift; sourceTree = "<group>"; };
 		F99D15452C526EB2000DCEE2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F99D15482C5371E6000DCEE2 /* DistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceView.swift; sourceTree = "<group>"; };
+		F99D154B2C5380C1000DCEE2 /* TestStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStyles.swift; sourceTree = "<group>"; };
 		F9A267BA2C524EB5006CCAF1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,13 +61,11 @@
 		F96346A92C50F54900842C63 /* Realtime Location */ = {
 			isa = PBXGroup;
 			children = (
+				F99D154A2C5372BC000DCEE2 /* Services */,
+				F99D15472C5371B4000DCEE2 /* View */,
 				F9A267B92C524E9E006CCAF1 /* Extensions */,
-				F96346B82C50FCF000842C63 /* Location_Manger.swift */,
-				F99D15452C526EB2000DCEE2 /* MapView.swift */,
-				F96346AC2C50F54900842C63 /* ContentView.swift */,
 				F96346AE2C50F55600842C63 /* Assets.xcassets */,
 				F96346B02C50F55600842C63 /* Preview Content */,
-				F96346BC2C5236C800842C63 /* Distance_App.swift */,
 			);
 			path = "Realtime Location";
 			sourceTree = "<group>";
@@ -76,10 +78,30 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		F99D15472C5371B4000DCEE2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F99D15452C526EB2000DCEE2 /* MapView.swift */,
+				F96346AC2C50F54900842C63 /* ContentView.swift */,
+				F99D15482C5371E6000DCEE2 /* DistanceView.swift */,
+				F96346BC2C5236C800842C63 /* RealtimeLocationApp.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F99D154A2C5372BC000DCEE2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F96346B82C50FCF000842C63 /* LocationManger.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		F9A267B92C524E9E006CCAF1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				F9A267BA2C524EB5006CCAF1 /* Colors.swift */,
+				F99D154B2C5380C1000DCEE2 /* TestStyles.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -155,10 +177,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F96346AD2C50F54900842C63 /* ContentView.swift in Sources */,
+				F99D15492C5371E6000DCEE2 /* DistanceView.swift in Sources */,
 				F9A267BB2C524EB5006CCAF1 /* Colors.swift in Sources */,
 				F99D15462C526EB2000DCEE2 /* MapView.swift in Sources */,
-				F96346B92C50FCF000842C63 /* Location_Manger.swift in Sources */,
-				F96346BD2C5236C800842C63 /* Distance_App.swift in Sources */,
+				F99D154C2C5380C1000DCEE2 /* TestStyles.swift in Sources */,
+				F96346B92C50FCF000842C63 /* LocationManger.swift in Sources */,
+				F96346BD2C5236C800842C63 /* RealtimeLocationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

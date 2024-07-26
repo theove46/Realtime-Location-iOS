@@ -1,22 +1,15 @@
-//
-//  Distance_App.swift
-//  Realtime Location
-//
-//  Created by BS1098 on 25/7/24.
-//
-
 import SwiftUI
 
 @main
-struct DistanceApp: App {
+struct RealtimeLocationApp: App {
     init() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(Color.persianBlue) // Tab bar background color
+        appearance.backgroundColor = UIColor(Color.persianBlue)
         appearance.stackedLayoutAppearance.selected.iconColor = UIColor(Color.turquoise)
         appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(Color.turquoise)]
-        appearance.stackedLayoutAppearance.normal.iconColor = UIColor(.white)
-        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(.white)]
+        appearance.stackedLayoutAppearance.normal.iconColor = UIColor(Color.azure)
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(Color.azure)]
         
         UITabBar.appearance().standardAppearance = appearance
         if #available(iOS 15.0, *) {

@@ -9,6 +9,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var startingLocation: CLLocation?
     @Published var endingLocation: CLLocation?
     @Published var path: [CLLocation] = []
+    @Published var speed: Double = 0.0 // Speed in km/h
     private var previousLocation: CLLocation?
     private var isTracking: Bool = false
 
@@ -40,6 +41,13 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             let delta = newLocation.distance(from: previousLocation)
             distance += delta
             path.append(newLocation)
+            
+            // Calculate speed
+            let timeInterval = newLocation.timestamp.timeIntervalSince(previousLocation.timestamp)
+            if timeInterval > 0 {
+                let speedInMetersPerSecond = delta / timeInterval
+                speed = speedInMetersPerSecond * 3.6
+            }
         }
         self.previousLocation = newLocation
         self.location = newLocation
