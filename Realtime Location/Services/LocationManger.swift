@@ -14,6 +14,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     var isTracking: Bool = false
     var isPaused: Bool = false
 
+    private var startTime: Date?
+    private var endTime: Date?
+    @Published var reports: [ReportManager] = []
+
     override init() {
         super.init()
         locationManager.delegate = self
@@ -29,12 +33,27 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         endingLocation = nil
         previousLocation = location
         path = [location].compactMap { $0 }
+        startTime = Date()
+        endTime = nil
     }
 
     func stopTracking() {
         isTracking = false
         isPaused = false
         endingLocation = location
+        endTime = Date()
+
+        if let startLocation = startingLocation, let endLocation = endingLocation, let startTime = startTime, let endTime = endTime {
+            let report = ReportManager(
+                startLocation: startLocation,
+                endLocation: endLocation,
+                totalDistance: distance,
+                duration: endTime.timeIntervalSince(startTime),
+                averageSpeed: (distance / endTime.timeIntervalSince(startTime)) * 3.6, // Convert m/s to km/h
+                date: endTime
+            )
+            reports.append(report)
+        }
     }
 
     func pauseTracking() {

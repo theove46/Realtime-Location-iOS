@@ -14,6 +14,11 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "map.circle")
                 }
+            
+            ReportView(locationManager: locationManager)
+                .tabItem {
+                    Image(systemName: "newspaper.circle.fill")
+                }
         }
         .accentColor(Color.turquoise)
     }

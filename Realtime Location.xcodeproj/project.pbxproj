@@ -15,6 +15,8 @@
 		F99D15462C526EB2000DCEE2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D15452C526EB2000DCEE2 /* MapView.swift */; };
 		F99D15492C5371E6000DCEE2 /* DistanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D15482C5371E6000DCEE2 /* DistanceView.swift */; };
 		F99D154C2C5380C1000DCEE2 /* TestStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D154B2C5380C1000DCEE2 /* TestStyles.swift */; };
+		F99D154E2C576F19000DCEE2 /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D154D2C576F19000DCEE2 /* ReportManager.swift */; };
+		F99D15502C577063000DCEE2 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D154F2C577063000DCEE2 /* ReportView.swift */; };
 		F9A267BB2C524EB5006CCAF1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A267BA2C524EB5006CCAF1 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,8 @@
 		F99D15452C526EB2000DCEE2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		F99D15482C5371E6000DCEE2 /* DistanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceView.swift; sourceTree = "<group>"; };
 		F99D154B2C5380C1000DCEE2 /* TestStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStyles.swift; sourceTree = "<group>"; };
+		F99D154D2C576F19000DCEE2 /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
+		F99D154F2C577063000DCEE2 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		F9A267BA2C524EB5006CCAF1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +89,7 @@
 				F96346AC2C50F54900842C63 /* ContentView.swift */,
 				F99D15482C5371E6000DCEE2 /* DistanceView.swift */,
 				F96346BC2C5236C800842C63 /* RealtimeLocationApp.swift */,
+				F99D154F2C577063000DCEE2 /* ReportView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				F96346B82C50FCF000842C63 /* LocationManger.swift */,
+				F99D154D2C576F19000DCEE2 /* ReportManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -180,6 +186,8 @@
 				F99D15492C5371E6000DCEE2 /* DistanceView.swift in Sources */,
 				F9A267BB2C524EB5006CCAF1 /* Colors.swift in Sources */,
 				F99D15462C526EB2000DCEE2 /* MapView.swift in Sources */,
+				F99D154E2C576F19000DCEE2 /* ReportManager.swift in Sources */,
+				F99D15502C577063000DCEE2 /* ReportView.swift in Sources */,
 				F99D154C2C5380C1000DCEE2 /* TestStyles.swift in Sources */,
 				F96346B92C50FCF000842C63 /* LocationManger.swift in Sources */,
 				F96346BD2C5236C800842C63 /* RealtimeLocationApp.swift in Sources */,
