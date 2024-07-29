@@ -23,24 +23,37 @@ struct ReportView: View {
                     VStack {
                         ForEach(locationManager.reports) { report in
                             VStack(alignment: .leading) {
-                                Text("Date: \(report.date, formatter: dateFormatter)")
-                                    .font(.normal)
-                                    .foregroundColor(.azure)
-                                Text("Start: \(report.startLocation.coordinate.latitude), \(report.startLocation.coordinate.longitude)")
-                                    .font(.normal)
-                                    .foregroundColor(.azure)
-                                Text("End: \(report.endLocation.coordinate.latitude), \(report.endLocation.coordinate.longitude)")
-                                    .font(.normal)
-                                    .foregroundColor(.azure)
-                                Text(formattedDistance(for: report.totalDistance))
-                                    .font(.normal)
-                                    .foregroundColor(.azure)
-                                Text("Duration: \(timeString(from: report.duration))")
-                                    .font(.normal)
-                                    .foregroundColor(.azure)
-                                Text("Avg Speed: \(report.averageSpeed, specifier: "%.2f") km/h")
-                                    .font(.normal)
-                                    .foregroundColor(.azure)
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text("Date: \(report.date, formatter: dateFormatter)")
+                                            .font(.normal)
+                                            .foregroundColor(.azure)
+                                        Text("Start: \(report.startLocation.coordinate.latitude), \(report.startLocation.coordinate.longitude)")
+                                            .font(.normal)
+                                            .foregroundColor(.azure)
+                                        Text("End: \(report.endLocation.coordinate.latitude), \(report.endLocation.coordinate.longitude)")
+                                            .font(.normal)
+                                            .foregroundColor(.azure)
+                                        Text(formattedDistance(for: report.totalDistance))
+                                            .font(.normal)
+                                            .foregroundColor(.azure)
+                                        Text("Duration: \(timeString(from: report.duration))")
+                                            .font(.normal)
+                                            .foregroundColor(.azure)
+                                        Text("Avg Speed: \(report.averageSpeed, specifier: "%.2f") km/h")
+                                            .font(.normal)
+                                            .foregroundColor(.azure)
+                                    }
+                                    Spacer()
+                                    Button(action: {
+                                        if let index = locationManager.reports.firstIndex(where: { $0.id == report.id }) {
+                                            locationManager.reports.remove(at: index)
+                                        }
+                                    }) {
+                                        Image(systemName: "trash")
+                                            .foregroundColor(.red)
+                                    }
+                                }
                             }
                             .padding()
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -48,6 +61,16 @@ struct ReportView: View {
                             .cornerRadius(8)
                             .padding(.horizontal)
                             .padding(.vertical, 4)
+                            .contextMenu {
+                                Button(action: {
+                                    if let index = locationManager.reports.firstIndex(where: { $0.id == report.id }) {
+                                        locationManager.reports.remove(at: index)
+                                    }
+                                }) {
+                                    Text("Delete")
+                                    Image(systemName: "trash")
+                                }
+                            }
                         }
                     }
                 }
@@ -77,10 +100,10 @@ struct ReportView: View {
     }
     
     private func formattedDistance(for distance: Double) -> String {
-            if distance >= 1000 {
-                return String(format: "Distance: %.2f km", distance / 1000)
-            } else {
-                return String(format: "Distance: %.2f m", distance)
-            }
+        if distance >= 1000 {
+            return String(format: "Distance: %.2f km", distance / 1000)
+        } else {
+            return String(format: "Distance: %.2f m", distance)
         }
+    }
 }
