@@ -10,19 +10,21 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var endingLocation: CLLocation?
     @Published var path: [CLLocation] = []
     @Published var speed: Double = 0.0
+    @Published var reports: [ReportManager] = [] {
+        didSet {
+            saveReports()
+        }
+    }
     private var previousLocation: CLLocation?
     var isTracking: Bool = false
     var isPaused: Bool = false
-
-    private var startTime: Date?
-    private var endTime: Date?
-    @Published var reports: [ReportManager] = []
 
     override init() {
         super.init()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        loadReports()
     }
 
     func startTracking() {
@@ -33,27 +35,13 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         endingLocation = nil
         previousLocation = location
         path = [location].compactMap { $0 }
-        startTime = Date()
-        endTime = nil
     }
 
     func stopTracking() {
         isTracking = false
         isPaused = false
         endingLocation = location
-        endTime = Date()
-
-        if let startLocation = startingLocation, let endLocation = endingLocation, let startTime = startTime, let endTime = endTime {
-            let report = ReportManager(
-                startLocation: startLocation,
-                endLocation: endLocation,
-                totalDistance: distance,
-                duration: endTime.timeIntervalSince(startTime),
-                averageSpeed: (distance / endTime.timeIntervalSince(startTime)) * 3.6, // Convert m/s to km/h
-                date: endTime
-            )
-            reports.append(report)
-        }
+        saveReport()
     }
 
     func pauseTracking() {
@@ -92,5 +80,34 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
         self.previousLocation = newLocation
         self.location = newLocation
+    }
+
+    private func saveReport() {
+        guard let start = startingLocation, let end = endingLocation else { return }
+        let report = ReportManager(
+            startLocation: start,
+            endLocation: end,
+            totalDistance: distance,
+            duration: end.timestamp.timeIntervalSince(start.timestamp),
+            averageSpeed: distance / end.timestamp.timeIntervalSince(start.timestamp) * 3.6,
+            date: Date()
+        )
+        reports.append(report)
+    }
+
+    private func saveReports() {
+        let encoder = JSONEncoder()
+        if let encodedReports = try? encoder.encode(reports) {
+            UserDefaults.standard.set(encodedReports, forKey: "reports")
+        }
+    }
+
+    private func loadReports() {
+        if let savedReports = UserDefaults.standard.data(forKey: "reports") {
+            let decoder = JSONDecoder()
+            if let decodedReports = try? decoder.decode([ReportManager].self, from: savedReports) {
+                reports = decodedReports
+            }
+        }
     }
 }
