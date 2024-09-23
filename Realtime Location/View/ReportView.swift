@@ -80,6 +80,12 @@ struct ReportView: View {
                         Text("Reports")
                             .foregroundColor(.azure)
                     }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: downloadReports) {
+                            Image(systemName: "square.and.arrow.down")
+                                .foregroundColor(.azure)
+                        }
+                    }
                 }
             }
         }
@@ -106,4 +112,30 @@ struct ReportView: View {
             return String(format: "Distance: %.2f m", distance)
         }
     }
+    
+    private func downloadReports() {
+        if let pdfData = PDFGenerator.generatePDF(from: locationManager.reports) {
+            let fileName = "Reports.pdf"
+            let fileManager = FileManager.default
+            let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let fileURL = documentsURL.appendingPathComponent(fileName)
+
+            do {
+                try pdfData.write(to: fileURL)
+                print("PDF saved to: \(fileURL.path)")
+                sharePDF(fileURL: fileURL)  // Call share function if needed
+            } catch {
+                print("Could not save PDF file: \(error)")
+            }
+        }
+    }
+
+    private func sharePDF(fileURL: URL) {
+        // Present the share sheet
+        let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+        if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
+            rootViewController.present(activityViewController, animated: true, completion: nil)
+        }
+    }
+    
 }

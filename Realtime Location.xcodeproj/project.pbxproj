@@ -17,6 +17,7 @@
 		F99D154C2C5380C1000DCEE2 /* TestStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D154B2C5380C1000DCEE2 /* TestStyles.swift */; };
 		F99D154E2C576F19000DCEE2 /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D154D2C576F19000DCEE2 /* ReportManager.swift */; };
 		F99D15502C577063000DCEE2 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D154F2C577063000DCEE2 /* ReportView.swift */; };
+		F99D15522C57A8FD000DCEE2 /* PdfGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99D15512C57A8FD000DCEE2 /* PdfGenerator.swift */; };
 		F9A267BB2C524EB5006CCAF1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A267BA2C524EB5006CCAF1 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		F99D154B2C5380C1000DCEE2 /* TestStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStyles.swift; sourceTree = "<group>"; };
 		F99D154D2C576F19000DCEE2 /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
 		F99D154F2C577063000DCEE2 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		F99D15512C57A8FD000DCEE2 /* PdfGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfGenerator.swift; sourceTree = "<group>"; };
 		F9A267BA2C524EB5006CCAF1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 			children = (
 				F96346B82C50FCF000842C63 /* LocationManger.swift */,
 				F99D154D2C576F19000DCEE2 /* ReportManager.swift */,
+				F99D15512C57A8FD000DCEE2 /* PdfGenerator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			files = (
 				F96346AD2C50F54900842C63 /* ContentView.swift in Sources */,
 				F99D15492C5371E6000DCEE2 /* DistanceView.swift in Sources */,
+				F99D15522C57A8FD000DCEE2 /* PdfGenerator.swift in Sources */,
 				F9A267BB2C524EB5006CCAF1 /* Colors.swift in Sources */,
 				F99D15462C526EB2000DCEE2 /* MapView.swift in Sources */,
 				F99D154E2C576F19000DCEE2 /* ReportManager.swift in Sources */,
